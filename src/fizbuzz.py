@@ -1,22 +1,29 @@
 def fizz_buzz_whazz(number: int) -> str:
-    if number % 3 == 0 and number % 5 == 0 and number % 7 == 0:
+    """Return the Fizz Buzz Whazz string for any number between 1 and 199"""
+    if is_dividable_by(3 * 5 * 7, number):
         return "FizzBuzzWhazz"
-    if number % 5 == 0 and number % 7 == 0:
+    if is_dividable_by(5 * 7, number):
         return "BuzzWhazz"
-    if number % 3 == 0 and number % 7 == 0:
+    if is_dividable_by(3 * 7, number):
         return "FizzWhazz"
-    if number % 3 == 0 and number % 5 == 0:
+    if is_dividable_by(3 * 5, number):
         return "FizzBuzz"
-    if number % 7 == 0:
+    if is_dividable_by(7, number):
         return "Whazz"
-    if number % 5 == 0:
+    if is_dividable_by(5, number):
         return "Buzz"
-    if number % 3 == 0:
+    if is_dividable_by(3, number):
         return "Fizz"
     return numbers(number)
 
 
+def is_dividable_by(divisor, number):
+    """True if number is dividable by divisor."""
+    return number % divisor == 0
+
+
 def numbers(number: int) -> str:
+    """Return the string from of any number between 1 and 199"""
     _single_number = [
         "",
         "One",
