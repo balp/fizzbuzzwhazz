@@ -1,3 +1,5 @@
+import math
+
 def fizz_buzz_whazz(number: int) -> str:
     """Return the Fizz Buzz Whazz string for any number between 1 and 199"""
     if is_dividable_by(3 * 5 * 7, number):
@@ -14,7 +16,7 @@ def fizz_buzz_whazz(number: int) -> str:
         return "Buzz"
     if is_dividable_by(3, number):
         return "Fizz"
-    return numbers(number)
+    return _as_letters(number)
 
 
 def is_dividable_by(divisor, number):
@@ -24,6 +26,19 @@ def is_dividable_by(divisor, number):
 
 def numbers(number: int) -> str:
     """Return the string from of any number between 1 and 199"""
+    return _as_letters(number)
+
+
+def _is_prime(number: int) -> bool:
+    if number <= 1:
+        return False
+    for i in range(2, int(math.sqrt(number))+1):
+        if number % i == 0:
+            return False
+    return True
+
+
+def _as_letters(number: int) -> str:
     _single_number = [
         "",
         "One",
